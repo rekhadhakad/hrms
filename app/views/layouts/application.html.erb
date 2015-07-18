@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Samosys</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="background-color: #eee;">
+<%= render :partial=> "layouts/header"%>
+<%#= render :partial=> "layouts/side_bar"%>
+<div class="container container_border">
+	<%= yield %>
+</div>
+</body>
+</html>
