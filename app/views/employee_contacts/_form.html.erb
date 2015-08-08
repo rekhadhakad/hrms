@@ -1,0 +1,46 @@
+<%= form_for(@employee_contact) do |f| %>
+  <% if @employee_contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee_contact.errors.count, "error") %> prohibited this employee_contact from being saved:</h2>
+
+      <ul>
+      <% @employee_contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= f.hidden_field :employee_id, :value => @employee.id  %>
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_area :address, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :current_address %>
+    <%= f.text_area :current_address, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :home_phone %>
+    <%= f.text_field :home_phone, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :mobile_no %>
+    <%= f.text_field :mobile_no, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :alternet_mobile_no %>
+    <%= f.text_field :alternet_mobile_no, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :father_contact_no %>
+    <%= f.text_field :father_contact_no, :class => "form-control" %>
+  </div>
+  <div class="actions form-group">
+    <%= f.submit :class=>"btn btn-primary"  %>
+  </div>
+<% end %>

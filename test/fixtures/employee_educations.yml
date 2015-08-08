@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: 1
+  exam_passed: MyString
+  board_or_university: MyString
+  institut_name: MyString
+  specialization: MyString
+  marks: MyString
+
+two:
+  employee_id: 1
+  exam_passed: MyString
+  board_or_university: MyString
+  institut_name: MyString
+  specialization: MyString
+  marks: MyString

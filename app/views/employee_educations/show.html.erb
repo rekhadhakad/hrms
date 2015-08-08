@@ -1,0 +1,38 @@
+<div id="page-wrapper">
+  <div class="row">
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Employee:</strong>
+      <%= @employee_education.employee_id %>
+    </p>
+
+    <p>
+      <strong>Exam passed:</strong>
+      <%= @employee_education.exam_passed %>
+    </p>
+
+    <p>
+      <strong>Board or university:</strong>
+      <%= @employee_education.board_or_university %>
+    </p>
+
+    <p>
+      <strong>Institut name:</strong>
+      <%= @employee_education.institut_name %>
+    </p>
+
+    <p>
+      <strong>Specialization:</strong>
+      <%= @employee_education.specialization %>
+    </p>
+
+    <p>
+      <strong>Marks:</strong>
+      <%= @employee_education.marks %>
+    </p>
+
+    <%= link_to 'Edit', edit_employee_education_path(@employee_education) %> |
+    <%= link_to 'Back', employee_educations_path %>
+  </div>
+</div>    

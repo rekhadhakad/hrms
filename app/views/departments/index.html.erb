@@ -1,0 +1,35 @@
+<div id="page-wrapper">
+
+  <div class="row">
+    <div class="col-lg-12">
+    <% if current_user.has_role? :admin %>
+      <%= link_to "Add Department", new_department_path, :class=> "btn btn-primary", :id => "add_employee", :style => "float: right; margin-top: 24px;"%>
+    <% end %>
+      <h3 class="page-header">Samosys Departments</h3> 
+    </div>
+  </div>
+  <div class="row">
+    <p id="notice"><%= notice %></p>
+    <table>
+     
+
+      <tbody>
+        <% @departments.each do |department| %>
+          <tr>
+            <td><%= department.name %> : </td>
+            
+            <td><% department.employee.each do |emp| %> 
+              <%= emp.first_name %>
+              <% end %>
+            </td><br>
+            
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%#= link_to 'New Department', new_department_path %>
+  </div>
+</div>    

@@ -1,0 +1,43 @@
+<div id="page-wrapper">
+  <div class="row">
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Employee:</strong>
+      <%= @employee_bank_detail.employee_id %>
+    </p>
+
+    <p>
+      <strong>Pan no:</strong>
+      <%= @employee_bank_detail.pan_no %>
+    </p>
+
+    <p>
+      <strong>National id no:</strong>
+      <%= @employee_bank_detail.national_id_no %>
+    </p>
+
+    <p>
+      <strong>Bank acc no:</strong>
+      <%= @employee_bank_detail.bank_acc_no %>
+    </p>
+
+    <p>
+      <strong>Ifsc code:</strong>
+      <%= @employee_bank_detail.ifsc_code %>
+    </p>
+
+    <p>
+      <strong>Bank name:</strong>
+      <%= @employee_bank_detail.bank_name %>
+    </p>
+
+    <p>
+      <strong>Branch address:</strong>
+      <%= @employee_bank_detail.branch_address %>
+    </p>
+
+    <%= link_to 'Edit', edit_employee_bank_detail_path(@employee_bank_detail) %> |
+    <%= link_to 'Back', employee_bank_details_path %>
+  </div>
+</div>    

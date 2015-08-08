@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: 1
+  pan_no: MyString
+  national_id_no: MyString
+  bank_acc_no: MyString
+  ifsc_code: MyString
+  bank_name: MyString
+  branch_address: MyString
+
+two:
+  employee_id: 1
+  pan_no: MyString
+  national_id_no: MyString
+  bank_acc_no: MyString
+  ifsc_code: MyString
+  bank_name: MyString
+  branch_address: MyString

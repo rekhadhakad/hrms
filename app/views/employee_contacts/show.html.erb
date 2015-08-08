@@ -1,0 +1,43 @@
+<div id="page-wrapper">
+  <div class="row">
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @employee_contact.address %>
+    </p>
+
+    <p>
+      <strong>Current address:</strong>
+      <%= @employee_contact.current_address %>
+    </p>
+
+    <p>
+      <strong>Home phone:</strong>
+      <%= @employee_contact.home_phone %>
+    </p>
+
+    <p>
+      <strong>Mobile no:</strong>
+      <%= @employee_contact.mobile_no %>
+    </p>
+
+    <p>
+      <strong>Alternet mobile no:</strong>
+      <%= @employee_contact.alternet_mobile_no %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @employee_contact.email %>
+    </p>
+
+    <p>
+      <strong>Father contact no:</strong>
+      <%= @employee_contact.father_contact_no %>
+    </p>
+
+    <%= link_to 'Edit', edit_employee_contact_path(@employee_contact) %> |
+    <%= link_to 'Back', employee_contacts_path %>
+  </div>
+</div>    

@@ -1,0 +1,53 @@
+<div id="page-wrapper">
+  <div class="row">
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col-lg-12">
+    <% if current_user.has_role? :admin %>
+      <%= link_to "New Event", new_event_path, :class=> "btn btn-primary", :id => "add_employee", :style => "float: right; margin-top: 24px;"%>
+    <% end %>
+      <h3 class="page-header">Samosys Events</h3> 
+    </div>
+  </div>
+  
+
+  <!-- <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Start time</th>
+        <th>End time</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= event.title %></td>
+          <td><%= event.description %></td>
+          <td><%= event.start_time %></td>
+          <td><%= event.end_time %></td>
+          <td><%= link_to 'Show', event %></td>
+          <td><%= link_to 'Edit', edit_event_path(event) %></td>
+          <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table> -->
+
+  <br>
+
+    <%#= link_to 'New Event', new_event_path %>
+
+
+    <p><div id="calendar"></div></p>
+  </div>  
+</div>
+
+<script type="text/javascript">
+  $('#calendar').fullCalendar({
+    events: '/events.json'
+  });  
+</script> 

@@ -1,66 +1,54 @@
-<div id="page-content-wrapper" style="">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12">
-				<% if current_user.has_role? :admin %>
-				<h2>Employee Details</h2>
-				<div class="btn-align">
-				<%= link_to "Add Employee", new_employee_path, :class=> "btn btn-primary", :id => "add_employee"%></div>
-
-				  <div class="user_details"> 
-				  	<%= image_tag current_user.image.url(:thumb), :class =>"img_align" %><br>
-				  	<span><%= current_user.email %></span>
-				  
-				  </div>
-				  <div class="" style="float: right; margin-top: 270px; margin-right: -218px;">
-				  	<%= form_tag(employees_path, :method => "get", id: "search-form") do %>
-				  	  <div class="form-group">
-							<%= text_field_tag :search, params[:search], :class=>"form-control", placeholder: "Search Employee" %>
-							</div>
-							<%= submit_tag "Search", :class=>"btn btn-default" %>
-						<% end %>
-					</div>
-
-					<div class="table table-striped">
-					  <table class="table" style="max-width: 60%;">
-					    <thead>
-		            <tr class="warning">
-		            <th></th>
-		              <th>S. NO</th>
-					        <th>Employee no</th>
-					        <th colspan="3">Action</th>
-		            </tr>
-	            </thead>
-						  <% @employees.each_with_index do |employee, index| %>
-						    <tbody>
-						    <tr class="<%= index%2 == 0 ? 'success' : 'danger' %>">
-						      <th><%= check_box_tag :accept%></th>
-									<td><%= index + 1 %></td>
-				          <td><%= employee.employee_no %></td>
-				          <td><%= link_to 'Show', employee %></td>
-				          <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-				          <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-									
-								</tr>	
-								</tbody>
-							<% end %>
-
-						</table>
-						<%= check_box_tag :select_all%>
-						<%= label_tag :select_all%>
-					</div>	
-				<% end %>
-      </div>
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+    <% if current_user.has_role? :admin %>
+      <%= link_to "Add Employee", new_employee_path, :class=> "btn btn-primary", :id => "add_employee", :style => "float: right; margin-top: 24px;"%>
+    <% end %>
+      <h3 class="page-header">Samosys Dashboard</h3> 
     </div>
-  </div>	
+  </div>
+  <% if current_user.has_role? :admin %>				 
+		<div style="float: right;"><%= image_tag current_user.image.url(:thumb), :style=>"height: 100px;" %><br><br>
+    <span><%= current_user.first_name %></span> 
+    <span><%= current_user.last_name %></span> <br>
+    <span><%= current_user.email %></span> <br>
+    <span><%= current_user.designation %></span> <br>
+    <span><%= current_user.contact_no %></span> <br> 
+    </div>
+		
+    <div class="table-responsive">
+			<table class="table table-striped table-bordered table-hover dataTable no-footer" style="max-width: 85%;">
+				<thead>
+	        <tr class="warning">
+	          <th></th>
+	          <th>S. No</th>
+				    <th>Employee no</th>
+				    <th colspan="2"></th>
+	        </tr>
+        </thead>
+        <tbody>
+				<% @employees.each_with_index do |employee, index| %>
+				  <tr>
+				    <td><%= check_box_tag  "accept_#{employee.id}"%></td>
+						<td><%= index + 1 %></td>
+	          <td><%= link_to employee.employee_no, employee%></td>
+	          <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+	          <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					</tr>	
+				<% end %>
+        </tbody>
+			</table>
+			<%#= check_box_tag :select_all%>
+			<%#= label_tag :select_all%>
+		</div>	
+	<% end %>
 </div>
 
 <script>
 $( document ).ready(function() {
-  $("#add_employee").on('click', function(){
-
-  })
-    console.log( "ready!" );
+  $('#select_all').on("click", function(){
+	  var cbxs = $('input[type="checkbox"]');
+	  cbxs.prop("checked", !cbxs.prop("checked"));
+	});
 });
 </script>
-

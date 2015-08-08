@@ -11,22 +11,96 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150718102047) do
+ActiveRecord::Schema.define(version: 20150804075631) do
 
-  create_table "employees", force: :cascade do |t|
-    t.string   "employee_no",    limit: 255
-    t.string   "first_name",     limit: 255
-    t.string   "middle_name",    limit: 255
-    t.string   "last_name",      limit: 255
-    t.date     "date_of_birth"
-    t.string   "marital_status", limit: 255
-    t.string   "father_name",    limit: 255
-    t.string   "mother_name",    limit: 255
-    t.string   "department",     limit: 255
-    t.string   "technology",     limit: 255
-    t.string   "date_of_join",   limit: 255
+  create_table "departments", force: :cascade do |t|
+    t.string   "name",                  limit: 255
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "dept_img_file_name",    limit: 255
+    t.string   "dept_img_content_type", limit: 255
+    t.integer  "dept_img_file_size",    limit: 4
+    t.datetime "dept_img_updated_at"
+  end
+
+  create_table "employee_bank_details", force: :cascade do |t|
+    t.integer  "employee_id",    limit: 4
+    t.string   "pan_no",         limit: 255
+    t.string   "national_id_no", limit: 255
+    t.string   "bank_acc_no",    limit: 255
+    t.string   "ifsc_code",      limit: 255
+    t.string   "bank_name",      limit: 255
+    t.string   "branch_address", limit: 255
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "employee_contacts", force: :cascade do |t|
+    t.integer  "employee_id",        limit: 4
+    t.text     "address",            limit: 65535
+    t.text     "current_address",    limit: 65535
+    t.string   "home_phone",         limit: 255
+    t.string   "mobile_no",          limit: 255
+    t.string   "alternet_mobile_no", limit: 255
+    t.string   "email",              limit: 255
+    t.string   "father_contact_no",  limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  create_table "employee_educations", force: :cascade do |t|
+    t.integer  "employee_id",         limit: 4
+    t.string   "exam_passed",         limit: 255
+    t.string   "board_or_university", limit: 255
+    t.string   "institut_name",       limit: 255
+    t.string   "specialization",      limit: 255
+    t.string   "marks",               limit: 255
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string   "employee_no",         limit: 255
+    t.string   "first_name",          limit: 255
+    t.string   "middle_name",         limit: 255
+    t.string   "last_name",           limit: 255
+    t.date     "date_of_birth"
+    t.string   "marital_status",      limit: 255
+    t.string   "father_name",         limit: 255
+    t.string   "mother_name",         limit: 255
+    t.string   "department",          limit: 255
+    t.string   "technology",          limit: 255
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.date     "joining_date"
+    t.integer  "department_id",       limit: 4
+    t.string   "address",             limit: 255
+    t.string   "current_address",     limit: 255
+    t.string   "home_phone",          limit: 255
+    t.string   "mobile_no",           limit: 255
+    t.string   "alternet_mobile_no",  limit: 255
+    t.string   "email",               limit: 255
+    t.string   "father_contact_no",   limit: 255
+    t.string   "exam_passed",         limit: 255
+    t.string   "board_or_university", limit: 255
+    t.string   "institut_name",       limit: 255
+    t.string   "specialization",      limit: 255
+    t.string   "marks",               limit: 255
+    t.string   "pan_no",              limit: 255
+    t.string   "national_id_no",      limit: 255
+    t.string   "bank_acc_no",         limit: 255
+    t.string   "ifsc_code",           limit: 255
+    t.string   "bank_name",           limit: 255
+    t.string   "branch_address",      limit: 255
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -57,6 +131,10 @@ ActiveRecord::Schema.define(version: 20150718102047) do
     t.string   "image_content_type",     limit: 255
     t.integer  "image_file_size",        limit: 4
     t.datetime "image_updated_at"
+    t.string   "first_name",             limit: 255
+    t.string   "last_name",              limit: 255
+    t.string   "designation",            limit: 255
+    t.string   "contact_no",             limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

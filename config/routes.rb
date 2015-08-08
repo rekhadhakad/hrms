@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
  
 
+  resources :departments
+  resources :events
+  resources :employee_educations
+  resources :employee_bank_details
+  resources :employee_contacts
   resources :employees do
     # collection do
     #   post 'search'

@@ -1,33 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div id="page-wrapper">
+  <div class="row">
+    <p id="notice"><%= notice %></p>
 
-<h1>Listing Employees</h1>
-<% if @employees.present? %>
-  <div class="table table-striped">
-    <table class="table" style="max-width: 60%;">
-      <thead>
-        <tr class="warning">
-          <th>S. NO</th>
-          <th>Employee no</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+    <h1>Listing Employees</h1>
+    <% if @employees.present? %>
+      <div class="table table-striped">
+        <table class="table" style="max-width: 60%;">
+          <thead>
+            <tr class="warning">
+              <th>S. NO</th>
+              <th>Employee no</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-      <tbody>
-        <% @employees.each_with_index do |employee, index| %>
-          <tr class="<%= index%2 == 0 ? 'success' : 'danger' %>">
-            <td><%= employee.first_name %></td>
-            <td><%= employee.employee_no %></td>
-            <td><%= link_to 'Show', employee %></td>
-            <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-            <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+          <tbody>
+            <% @employees.each_with_index do |employee, index| %>
+              <tr class="<%= index%2 == 0 ? 'success' : 'danger' %>">
+                <td><%= employee.first_name %></td>
+                <td><%= employee.employee_no %></td>
+                <td><%= link_to 'Show', employee %></td>
+                <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+                <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+     <% else %> 
+       <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+    <% end %>
+    <br>
+
+    <%= link_to 'Back', root_path %>
   </div>
- <% else %> 
-   <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
-<% end %>
-<br>
-
-<%#= link_to 'New Employee', new_employee_path %>
+</div>    

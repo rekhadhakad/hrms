@@ -14,4 +14,14 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require fullcalendar
+//= require moment
+//= require sb_admin
+//= require morris-data
+//= require morris.min
+//= require raphael
+//= require metisMenu.min
+//= require formToWizard
+//= require bootstrap-datepicker
+//= require formwizard
 //= require_tree .
